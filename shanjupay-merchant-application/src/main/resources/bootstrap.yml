@@ -1,0 +1,50 @@
+#note 向前端提供restful接口
+server:
+  port: 57010 #启动端口 命令行注入
+  max-http-header-size: 100KB
+
+nacos:
+  server:
+    addr: 192.168.31.141:8848   #nacos_server
+
+spring:
+  application:
+    name: merchant-application
+  main:
+    allow-bean-definition-overriding: true # Spring Boot 2.1 需要设定
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${nacos.server.addr}
+        namespace: aeee3fa2-4b80-42db-a3bf-50d8b3c4d0ec
+        cluster-name: DEFAULT
+      config:
+        server-addr: ${nacos.server.addr} # 配置中心地址
+        file-extension: yaml   #主配置文件拼接
+        namespace: aeee3fa2-4b80-42db-a3bf-50d8b3c4d0ec # 命令行注入
+        group: SHANJUPAY_GROUP # 聚合支付业务组
+        ext-config:
+        -
+          refresh: true
+          data-id: spring-boot-http.yaml # spring boot http配置
+          group: COMMON_GROUP # 通用配置组
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.shanjupay
+  protocol:
+    # dubbo 协议
+    name: dubbo
+    port: 20891
+  registry:
+    address: nacos://192.168.31.141:8848
+  application:
+    qos:
+      port: 22310 # dubbo qos端口配置  命令行注入
+  consumer:
+    check: false
+    timeout: 3000
+    retries: -1
+
+logging:
+  config: classpath:log4j2.xml

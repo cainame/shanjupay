@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.shanjupay.merchant.RestTemplateTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 12.541 s <<< FAILURE! - in com.shanjupay.merchant.RestTemplateTest
+testGetSmsCode(com.shanjupay.merchant.RestTemplateTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'merchantController': Unsatisfied dependency expressed through field 'smsService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'smsServiceImpl': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'sms.url' in value "${sms.url}"
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'smsServiceImpl': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'sms.url' in value "${sms.url}"
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'sms.url' in value "${sms.url}"
+
+getHtml(com.shanjupay.merchant.RestTemplateTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'merchantController': Unsatisfied dependency expressed through field 'smsService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'smsServiceImpl': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'sms.url' in value "${sms.url}"
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'smsServiceImpl': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'sms.url' in value "${sms.url}"
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'sms.url' in value "${sms.url}"
+
