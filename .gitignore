@@ -1,0 +1,13 @@
+#忽略bin文件夹
+bin/
+#忽略obj文件夹
+obj/
+*.class
+*.apk
+bin/
+gen/
+.settings/
+proguard/
+.idea/
+*.iml
+target/
